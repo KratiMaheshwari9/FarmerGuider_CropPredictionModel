@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Crop Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #f8f8f0; /* Updated background color */
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+        }
+
+        .hero {
+            background: url("/static/wel.jpg") no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem; /* Increased font size */
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem; /* Increased font size */
+            margin-bottom: 30px;
+        }
+
+        .explore-button {
+            display: inline-block;
+            padding: 15px 40px; /* Increased padding */
+            font-size: 1.5rem; /* Increased font size */
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .explore-button:hover {
+            background-color: #0056b3;
+        }
+
+        .section {
+            padding: 80px 0; /* Increased padding */
+        }
+
+        .section h2 {
+            font-size: 3rem; /* Increased font size */
+            margin-bottom: 20px;
+        }
+
+        .img-fluid {
+            margin-top: 70px;
+            height: 600px;
+            width: 600px;
+        }
+
+        .about-section {
+            background-size: cover;
+            background-color: #1e3043;
+            color: #efebeb; /* Updated color for better readability */
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 3rem; /* Increased font size */
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.3rem; /* Increased font size */
+        }
+
+        .tools-section {
+            text-align: center;
+        }
+
+        .tools-section img {
+            width: 120px; /* Updated width */
+            height: 120px; /* Updated height */
+            margin: 20px;
+            object-fit: contain;
+        }
+
+        .contact-section {
+            background-color: #1e3043;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem; /* Increased font size */
+            margin-bottom: 20px;
+        }
+
+        .contact-section a {
+            font-size: 2.5rem; /* Increased font size */
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links img {
+            width: 100px; /* Increased size */
+            height: 100px; /* Increased size */
+            margin: 10px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Crop Prediction Project</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#description">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tools">Tools</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#thankyou">Thank You</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Crop Prediction</h1>
+            <p>Predict the best crops to grow based on your data to maximize yield.</p>
+            <a href="{{ url_for('project') }}" class="explore-button">Explore Project</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="description" class="section">
+            <div class="container">
+                <h2>About This Project</h2>
+                <div class="row">
+                    <!-- Image on the left -->
+                    <div class="col-md-6">
+                        <img src="/static/about.jpg" alt="Crop Image" class="img-fluid">
+                    </div>
+                    <!-- Content on the right -->
+                    <div class="col-md-6">
+                        <h3>1. Objective</h3>
+                        <p>This project is designed to <strong>assist farmers</strong> in making <strong>informed
+                                decisions</strong> about the most suitable crops to plant based on specific
+                            environmental conditions.</p>
+
+                        <h3>2. Environmental Factors Considered</h3>
+                        <p>By inputting key factors such as <strong>nitrogen, phosphorus, potassium levels,
+                                temperature, humidity, pH, and rainfall</strong>, the system leverages a
+                            <strong>K-Means clustering algorithm</strong> to predict the <strong>optimal crop
+                                selection</strong>.</p>
+
+                        <h3>3. Crop Prediction Process</h3>
+                        <p>The algorithm clusters the data into groups and assigns the input data to the cluster
+                            that best matches its characteristics. As a result, the farmer receives a
+                            <strong>precise crop recommendation</strong> that aligns with the current environmental
+                            conditions.</p>
+
+                        <h3>4. Results Display</h3>
+                        <p>Once a crop is predicted, the result is displayed with both the <strong>crop's name in
+                                English and Hindi</strong>, along with a corresponding <strong>image of the
+                                crop</strong>.</p>
+
+                        <h3>5. User Interface</h3>
+                        <p>The platform includes an <strong>intuitive interface</strong> where users can enter the
+                            environmental factors easily. The system processes the data, performs the prediction,
+                            and presents the results <strong>clearly and concisely</strong>.</p>
+
+                        <h3>6. Data Storage and Analysis</h3>
+                        <p>The entire process is supported by a <strong>robust backend system</strong> that saves
+                            the prediction data for <strong>future reference and analysis</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I am a software engineer dedicated to creating impactful technology solutions. With expertise in data
+                    science and machine learning, I aim to help farmers make informed decisions that benefit their crops
+                    and livelihood.</p>
+            </div>
+        </section>
+
+        <section id="tools" class="section tools-section">
+            <div class="container">
+                <h2>Tools Used</h2>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <div>
+                        <img src="/static/python.jpg" alt="Python">
+                        <p>Python</p>
+                    </div>
+                    <div>
+                        <img src="/static/flask.jpg" alt="Flask">
+                        <p>Flask</p>
+                    </div>
+                    <div>
+                        <img src="/static/skl.jpg" alt="Scikit-learn">
+                        <p>Scikit-learn</p>
+                    </div>
+                    <div>
+                        <img src="/static/sqlite.jpg" alt="SQLite">
+                        <p>SQLite</p>
+                    </div>
+                    <div>
+                        <img src="/static/bootstrap.jpg" alt="Bootstrap">
+                        <p>Bootstrap</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 style="color: white;">Contact Me</h2>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/krati-maheshwari9/">
+                        <img src="/static/lin.jpg" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/KratiMaheshwari9">
+                        <img src="/static/git.jpg" alt="GitHub">
+                    </a>
+                    <a href="https://www.instagram.com/krati_maheshwari9?igsh=MTA5cWZvODBwbnNydg== ">
+                        <img src="/static/inst.jpg" alt="Instagram">
+                    </a>
+                    <a href="mailto:your-email@example.com">
+                        <img src="/static/mail.jpg" alt="Email">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="thankyou" class="section">
+            <div class="container">
+                <h2>Thank You</h2>
+                <p>Thank you for visiting the Crop Prediction Project. I hope this tool proves to be valuable in your
+                    farming endeavors.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Crop Prediction Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
